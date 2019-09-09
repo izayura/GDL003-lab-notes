@@ -1,25 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
+import firebase from "firebase/app";
+import "firebase/auth";
+import firebaseAKey from './firebase.js'
 import './App.css';
+import {
+  FirebaseAuthProvider 
+} from '@react-firebase/auth';
+import Login from './login.js';
+import LogOut from './logOut.js';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FirebaseAuthProvider firebase={firebase} {...firebaseAKey}>
+      <Login/>
+      <LogOut/>
+    </FirebaseAuthProvider>
+    
   );
 }
 
