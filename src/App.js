@@ -8,11 +8,13 @@ import {
 } from '@react-firebase/auth';
 import Login from './login.js';
 import LogOut from './logOut.js';
+import CreateUser from './createUser.js';
 
 function App() {
   return (
     <FirebaseAuthProvider firebase={firebase} {...firebaseAKey}>
       <Login/>
+      <CreateUser/>
       <LogOut/>
     </FirebaseAuthProvider>
     
