@@ -1,0 +1,30 @@
+body{
+    background-color: #dad0a5;
+    text-align: center;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.notesHeader, .notesBody, .notesFooter{
+    background-color: deeppink;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.notesHeader{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.notesBody{
+    margin-top: 20px;
+}
+
+.notesFooter{
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    width: 100%;
+}

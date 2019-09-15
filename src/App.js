@@ -4,20 +4,29 @@ import "firebase/auth";
 import firebaseAKey from './firebase.js'
 import './App.css';
 import {
-  FirebaseAuthProvider 
+  FirebaseAuthProvider,
+  FirebaseAuthConsumer
 } from '@react-firebase/auth';
 import Login from './login.js';
 import LogOut from './logOut.js';
-import CreateUser from './createUser.js';
+import CreateNotes from './createNotes.js';
 
 function App() {
   return (
     <FirebaseAuthProvider firebase={firebase} {...firebaseAKey}>
-      <Login/>
-      <CreateUser/>
-      <LogOut/>
+
+      <FirebaseAuthConsumer>
+        {({ isSignedIn }) => {
+          return isSignedIn
+            ? <React.Fragment>
+              <CreateNotes />
+              <LogOut />
+            </React.Fragment>
+            : <Login />
+        }}
+      </FirebaseAuthConsumer>
     </FirebaseAuthProvider>
-    
+
   );
 }
 
