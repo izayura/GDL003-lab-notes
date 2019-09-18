@@ -1,17 +1,27 @@
 import React, { Component } from 'react';
-import './NoteForm.css'
+import './NoteForm/NoteForm.css'
+//import firebase from "firebase/app";
+//import app from './firebase.js';
+//import { NotificationManager } from "react-notifications";
 
 class NoteForm extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.addNote = this.addNote.bind(this);
+        //this.addNote = props.addNote;
     }
 
     addNote() {
         console.log(this.textInput.value);
         this.props.addNote(this.textInput.value);
-        this.textInput.value = "";
-        this.textInput.focus();
+        console.log(this.db);
+        if (this.textInput.value === "") {
+            console.log("Error, primero escribe algo");
+        } else {
+            console.log("Linea 1")
+            this.textInput.value = "";
+            this.textInput.focus();
+        }
     }
 
     render() {

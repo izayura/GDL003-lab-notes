@@ -15,7 +15,7 @@ body{
 }
 
 .notesHeader{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .notesBody{
@@ -27,4 +27,12 @@ body{
     position: fixed;
     left: 0;
     width: 100%;
+}
+
+.note{
+    background-color: bisque;
+    padding: 20px;
+    color: black;
+    margin-top: 10px;
+    font-weight: bold;
 }

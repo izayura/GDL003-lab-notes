@@ -1,0 +1,9 @@
+.btnLogOut {
+    float: right;
+    padding: 10px;
+    color: white;
+    background-color: darkmagenta;
+    border: white;
+    margin-bottom: 15%;
+    font-weight: bold;
+}

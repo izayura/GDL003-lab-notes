@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
+import './logOut.css';
 
 class LogOut extends Component {
     constructor() {
@@ -20,7 +21,7 @@ class LogOut extends Component {
 
     render() {
         return (
-            <button onClick={this.logOut}>Cerrar Sesión</button>
+            <button className="btnLogOut" onClick={this.logOut}>Cerrar Sesión</button>
         )
     }
 }
