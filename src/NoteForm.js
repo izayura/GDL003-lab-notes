@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './NoteForm/NoteForm.css'
+import './NoteForm.css'
 //import firebase from "firebase/app";
 //import app from './firebase.js';
 //import { NotificationManager } from "react-notifications";

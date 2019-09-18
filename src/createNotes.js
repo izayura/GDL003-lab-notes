@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import firebase from "firebase";
 //import app from './firebase.js';
-//import config from './firebase.js';
 import 'firebase/firestore';
 //import Note from './Note/Note.js';
 import './createNote.css';
 import NoteForm from './NoteForm.js';
 import LogOut from './logOut.js';
+import ShowNotes from './showNotes.js';
 
 
 class CreateNotes extends Component {
@@ -23,7 +23,9 @@ class CreateNotes extends Component {
         };
     }
 
-    /*  componentDidMount() {
+  /*  componentDidMount() {
+        let db = firebase.firestore();
+
            db.collection("notes")
                .get()
                .then(querySnapshot => {
@@ -31,7 +33,7 @@ class CreateNotes extends Component {
                    console.log(data);
                    this.setState({ notes: data });
                });
-       } */
+       }  */
 
 
     handleRemove(id) {
@@ -44,11 +46,12 @@ class CreateNotes extends Component {
 
 
     addNote(newNote) {
-       // const app = firebase.initializeApp(config);
-        const db = firebase.firestore();
+        // const app = firebase.initializeApp(config);
+        let db = firebase.firestore();
         db.collection("notes").add({
-            noteContent: newNote
-
+            noteContent: newNote,
+            date: new Date().toLocaleDateString(),
+            hour: new Date().toLocaleTimeString(),
         }).then(function () {
             console.log("Document successfully written!");
         }).catch(function (error) {
@@ -59,8 +62,6 @@ class CreateNotes extends Component {
     }
 
     render() {
-        const { notes } = this.state;
-
         return (
             <div className="notesContainer">
                 <div className="notesHeader">
@@ -68,16 +69,7 @@ class CreateNotes extends Component {
                     <h1>React y firebase</h1>
                 </div>
                 <div className="notesBody">
-                    <ul>
-                        {notes.map(note => (
-                            <div key={note.noteId} className="note">
-                                <span onClick={() => this.handleRemove(this.noteId)}>&times;</span>
-                                <p>{note.noteId}</p>
-                                <p>{note.noteContent}</p>
-                            </div>
-                        ))}
-                    </ul>
-
+            <ShowNotes />
                 </div>
                 <div className="notesFooter">
                     <NoteForm
